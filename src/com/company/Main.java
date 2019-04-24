@@ -9,33 +9,34 @@ public class Main {
     static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        answer();
+        ask();
     }
 
-    private static void answer() {
+    private static void ask() {
             System.out.println("choose one from the below methods:\t");
             System.out.println("1.add two numbers.");
             System.out.println("2.devide 1st number by 2nd number.");
-            Scanner scanner = new Scanner(System.in);
-            int answer = scanner.nextInt();
+//            Scanner scanner = new Scanner(System.in);
+            int option = scanner.nextInt();
 
-            switch (answer) {
+            switch (option) {
                 case 1:
                     add();
                     break;
                 case 2:
-                    devide();
+                    divide();
                     break;
             }
     }
 
     private static boolean menu() {
         System.out.print("Would you like to go back to main menu? ");
-        String choose = scanner.next();
-//        Boolean choose = scanner.nextBoolean();
-//            choose.compareToIgnoreCase("yes")
-        while(choose.equalsIgnoreCase("yes")) {
-            answer();
+        String answer = scanner.next();
+//        Boolean answer = scanner.nextBoolean();
+//            answer.compareToIgnoreCase("yes")
+        while(answer.equalsIgnoreCase("yes") ||
+                answer.equalsIgnoreCase("y")) {
+            ask();
             return true;
         }
         return  false;
@@ -54,12 +55,19 @@ public class Main {
         System.out.println(sum);
 
         menu();
-
-
     }
 
-    private static void devide() {
+    private static void divide() {
+        int num1,num2, remainder;
+
         System.out.println("Enter 2 numbers, 1st number devided by 2nd number: ");
+
+        num1 = scanner.nextInt();
+        num2 = scanner.nextInt();
+        remainder = num1 / num2;
+        System.out.println(remainder);
+
+        menu();
     }
 
 
